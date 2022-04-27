@@ -86,7 +86,7 @@ lrmodel.fit(x_train, y_train)
 
 #Explainer Instance
 #lrSHAPexplainer = ClassifierExplainer(lrmodel, x_test, y_test)
-lrSHAPexplainer = ClassifierExplainer(lrmodel, x_test)
+lrSHAPexplainer = ClassifierExplainer(lrmodel, x_test, y_test)
 
 #Dashboard Configuration
 db = ExplainerDashboard(lrSHAPexplainer, title="Loan Eligibility",
@@ -95,4 +95,4 @@ db = ExplainerDashboard(lrSHAPexplainer, title="Loan Eligibility",
                     decision_trees=False)
 
 #db.to_yaml("dashboard.yaml", explainerfile="explainer.joblib", dump_explainer=True)
-db(lrSHAPexplainer).run()
+db.run()
